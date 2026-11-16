@@ -1,0 +1,5 @@
+# Optional: libraries for the local AI-text detector.
+# Installed from inside the app (Settings → AI detection) only after the user confirms.
+torch>=2.9
+transformers>=4.51
+safetensors>=0.4

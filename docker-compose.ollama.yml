@@ -1,0 +1,19 @@
+# OPTIONAL: run Ollama in Docker.
+# On macOS, Docker cannot use the Apple Silicon GPU (Metal), so models run on CPU only and are
+# several times slower than the native Ollama app. Prefer the native app from https://ollama.com.
+#
+#   docker compose -f docker-compose.ollama.yml up -d
+#   docker exec -it humanwrite-ollama ollama pull qwen3:4b
+#
+# HumanWrite connects to http://127.0.0.1:11434 by default (override with OLLAMA_HOST_URL).
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: humanwrite-ollama
+    ports:
+      - "127.0.0.1:11434:11434"
+    volumes:
+      - ollama-models:/root/.ollama
+    restart: unless-stopped
+volumes:
+  ollama-models:

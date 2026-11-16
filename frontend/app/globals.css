@@ -1,0 +1,334 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-source-serif);
+  --font-heading: var(--font-geist-sans);
+  --font-display: var(--font-instrument-serif);
+  --font-hand: var(--font-caveat);
+  --color-ink: var(--ink);
+  --color-pencil: var(--pencil);
+  --color-sticky: var(--sticky);
+  --color-highlighter: var(--highlighter);
+  --color-brand: var(--brand);
+  --color-brand-soft: var(--brand-soft);
+  --color-add: var(--add);
+  --color-add-bg: var(--add-bg);
+  --color-del: var(--del);
+  --color-del-bg: var(--del-bg);
+  --color-warn: var(--warn);
+  --color-warn-bg: var(--warn-bg);
+  --color-paper: var(--paper);
+  --color-desk: var(--desk);
+  --color-scan-bg: var(--scan-bg);
+  --color-scan-panel: var(--scan-panel);
+  --color-scan-line: var(--scan-line);
+  --color-scan-accent: var(--scan-accent);
+  --color-scan-dim: var(--scan-dim);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  /* HumanWrite — editorial: warm paper, ink, one proofreader's-pen accent */
+  --background: oklch(0.982 0.006 85);
+  --foreground: oklch(0.21 0.008 60);
+  --card: oklch(0.995 0.003 85);
+  --card-foreground: oklch(0.21 0.008 60);
+  --popover: oklch(0.995 0.003 85);
+  --popover-foreground: oklch(0.21 0.008 60);
+  --primary: oklch(0.22 0.01 60);
+  --primary-foreground: oklch(0.985 0.005 85);
+  --secondary: oklch(0.955 0.008 80);
+  --secondary-foreground: oklch(0.25 0.01 60);
+  --muted: oklch(0.952 0.008 80);
+  --muted-foreground: oklch(0.5 0.012 65);
+  --accent: oklch(0.95 0.015 60);
+  --accent-foreground: oklch(0.3 0.04 40);
+  --destructive: oklch(0.55 0.17 30);
+  --border: oklch(0.9 0.01 80);
+  --input: oklch(0.88 0.012 80);
+  --ring: oklch(0.6 0.12 40);
+  --chart-1: oklch(0.45 0.02 60);
+  --chart-2: oklch(0.6 0.13 40);
+  --chart-3: oklch(0.65 0.09 150);
+  --chart-4: oklch(0.75 0.11 85);
+  --chart-5: oklch(0.55 0.05 250);
+  --radius: 0.75rem;
+  --sidebar: oklch(0.95 0.014 80 / 0.55);
+  --sidebar-foreground: oklch(0.21 0.008 60);
+  --sidebar-primary: oklch(0.22 0.01 60);
+  --sidebar-primary-foreground: oklch(0.985 0.005 85);
+  --sidebar-accent: oklch(0.94 0.01 80);
+  --sidebar-accent-foreground: oklch(0.25 0.01 60);
+  --sidebar-border: oklch(0.9 0.01 80);
+  --sidebar-ring: oklch(0.6 0.12 40);
+
+  --brand: oklch(0.56 0.15 38);        /* proofreader's pen */
+  --brand-soft: oklch(0.955 0.025 50);
+  --add: oklch(0.5 0.1 150);
+  --add-bg: oklch(0.95 0.035 150);
+  --del: oklch(0.53 0.15 30);
+  --del-bg: oklch(0.955 0.03 35);
+  --warn: oklch(0.6 0.12 70);
+  --warn-bg: oklch(0.965 0.04 85);
+  --highlighter: oklch(0.93 0.11 98 / 0.55);
+  --paper: oklch(0.997 0.002 85);
+  --ink: oklch(0.5 0.17 32);           /* red pen, a touch deeper than brand for handwriting */
+  --pencil: oklch(0.42 0.01 60);
+  --sticky: oklch(0.95 0.09 97);
+  --desk: oklch(0.962 0.012 80);
+
+  /* scanning environment (light, calm) */
+  --scan-bg: oklch(0.962 0.012 80);
+  --scan-panel: oklch(0.995 0.003 85);
+  --scan-line: oklch(0.56 0.15 38);
+  --scan-accent: oklch(0.56 0.15 38);
+  --scan-dim: oklch(0.55 0.012 65);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+/* ---------- HumanWrite specifics ---------- */
+@keyframes hw-caret { 0%, 49% { opacity: 1 } 50%, 100% { opacity: 0 } }
+.hw-caret::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 1.05em;
+  margin-left: 1px;
+  vertical-align: -0.15em;
+  background: var(--brand);
+  animation: hw-caret 1s steps(1) infinite;
+}
+
+.font-display { font-family: var(--font-instrument-serif), Georgia, serif; font-weight: 400; letter-spacing: -0.01em; }
+.hw-paper-texture {
+  background-image: radial-gradient(oklch(0.6 0.02 70 / 0.035) 1px, transparent 1px);
+  background-size: 3px 3px;
+}
+.hw-scan-grid {
+  background-image:
+    linear-gradient(to right, oklch(0.7 0.05 230 / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(0.7 0.05 230 / 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* docx-preview inside the live preview panel */
+.hw-preview .docx-wrapper { background: transparent; padding: 24px 0; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+.hw-preview .docx-wrapper > section.docx { box-shadow: 0 1px 2px oklch(0 0 0 / 0.06), 0 8px 24px oklch(0 0 0 / 0.06); margin-bottom: 0; }
+.hw-preview p[data-hw-pid] { cursor: pointer; border-radius: 2px; transition: background-color 160ms ease, box-shadow 160ms ease; }
+.hw-preview p[data-hw-pid]:hover { background-color: oklch(0.56 0.15 38 / 0.04); }
+.hw-preview p[data-hw-selected="true"] { background-color: oklch(0.56 0.15 38 / 0.07); box-shadow: -6px 0 0 0 oklch(0.56 0.15 38 / 0.6); }
+.hw-preview p[data-hw-modified="true"] { text-decoration: underline; text-decoration-color: oklch(0.52 0.13 155 / 0.5); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.hw-preview p[data-hw-pending="true"] { box-shadow: -10px 0 0 -7px oklch(0.56 0.15 38 / 0.85); }
+.hw-preview p[data-hw-pending="true"][data-hw-selected="true"] { box-shadow: -6px 0 0 0 oklch(0.56 0.15 38 / 0.6); }
+.hw-preview p[data-hw-ai="strong"] { background-color: oklch(0.9 0.12 95 / 0.55); }
+.hw-preview p[data-hw-ai="likely"] { background-color: oklch(0.93 0.08 95 / 0.35); }
+.hw-preview p[data-hw-ai="possible"] { background-color: oklch(0.95 0.045 75 / 0.45); box-shadow: -4px 0 0 0 oklch(0.78 0.11 75 / 0.6); }
+.hw-preview p[data-hw-flash="true"] { animation: hw-ink 1.6s var(--hw-ease, ease-out) both; }
+@keyframes hw-ink { 0% { background-color: oklch(0.86 0.12 155 / 0.55); } 100% { background-color: transparent; } }
+.hw-preview mark.hw-sim { background: oklch(0.9 0.08 70 / 0.6); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hw-caret::after { animation: none; }
+}
+
+@keyframes hw-indet { 0% { left: -35% } 100% { left: 100% } }
+
+/* ───────────────────────── Navigation motion (View Transitions) ─────────────────────────
+   Forward = deeper into a document (slides left), back = towards My documents (slides right).
+   Old content leaves fast; new content arrives a beat later, more gently. */
+:root {
+  --hw-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --hw-exit: 160ms;
+  --hw-enter: 260ms;
+  --hw-move: 520ms;
+}
+::view-transition { pointer-events: none; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: 220ms; }
+
+::view-transition-old(.nav-forward) { --hw-slide: -48px; animation: var(--hw-exit) ease-in both hw-fade reverse, var(--hw-move) var(--hw-ease) both hw-slide reverse; }
+::view-transition-new(.nav-forward) { --hw-slide: 48px;  animation: var(--hw-enter) ease-out var(--hw-exit) both hw-fade, var(--hw-move) var(--hw-ease) both hw-slide; }
+::view-transition-old(.nav-back)    { --hw-slide: 48px;  animation: var(--hw-exit) ease-in both hw-fade reverse, var(--hw-move) var(--hw-ease) both hw-slide reverse; }
+::view-transition-new(.nav-back)    { --hw-slide: -48px; animation: var(--hw-enter) ease-out var(--hw-exit) both hw-fade, var(--hw-move) var(--hw-ease) both hw-slide; }
+
+/* The document sheet / AI ring: one object moving between screens. */
+::view-transition-group(.morph) { animation-duration: 640ms; animation-timing-function: var(--hw-ease); z-index: 50; }
+::view-transition-image-pair(.morph) { animation-name: hw-via-blur; animation-duration: 640ms; }
+::view-transition-old(.morph) { animation: 300ms ease-in both hw-fade-plain reverse; }
+::view-transition-new(.morph) { animation: 420ms ease-out 120ms both hw-fade-plain; }
+
+/* The header is the fixed reference point: it swaps in place, never slides. */
+::view-transition-group(app-header) { animation: none; z-index: 100; }
+::view-transition-old(app-header) { display: none; }
+::view-transition-new(app-header) { animation: none; }
+
+@keyframes hw-fade { from { opacity: 0; filter: blur(2px); } to { opacity: 1; filter: blur(0); } }
+@keyframes hw-fade-plain { from { opacity: 0; } to { opacity: 1; } }
+@keyframes hw-slide { from { translate: var(--hw-slide) 0; } to { translate: 0 0; } }
+@keyframes hw-via-blur { 35% { filter: blur(2px); } }
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*), ::view-transition-new(*), ::view-transition-group(*), ::view-transition-image-pair(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}
+
+/* ───────────────────────── The writing desk ─────────────────────────
+   Everything sits on a warm, slightly grainy desk lit by a lamp that follows the cursor.
+   Paper is paper: its own fibre texture, a soft contact shadow and a longer cast shadow. */
+:root {
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .28 0 0 0 0 .2 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --fibre: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='2' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .38 0 0 0 0 .28 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+  --shadow-paper: 0 0.5px 0 oklch(1 0 0 / 0.9) inset, 0 1px 1.5px oklch(0.3 0.03 60 / 0.14), 0 6px 14px -6px oklch(0.3 0.03 60 / 0.18), 0 28px 50px -24px oklch(0.3 0.03 60 / 0.28);
+  --shadow-paper-lift: 0 0.5px 0 oklch(1 0 0 / 0.9) inset, 0 2px 3px oklch(0.3 0.03 60 / 0.1), 0 16px 30px -10px oklch(0.3 0.03 60 / 0.22), 0 50px 80px -30px oklch(0.3 0.03 60 / 0.35);
+}
+body.hw-desk {
+  background-color: oklch(0.962 0.012 80);
+  background-image: var(--grain);
+  background-size: 220px 220px;
+}
+.hw-desk-light {
+  background:
+    radial-gradient(900px 640px at var(--lx, 50%) var(--ly, 20%), oklch(0.995 0.02 90 / 0.75), transparent 70%),
+    radial-gradient(140% 120% at 50% 0%, transparent 55%, oklch(0.55 0.04 60 / 0.16) 100%);
+  transition: background-position 0.2s;
+}
+.hw-paper {
+  background-color: var(--paper);
+  background-image: var(--fibre);
+  background-size: 240px 240px;
+  box-shadow: var(--shadow-paper);
+}
+.font-hand { font-family: var(--font-caveat), "Bradley Hand", cursive; font-weight: 500; letter-spacing: 0.005em; }
+
+/* Index-card ruling for note-like surfaces */
+.hw-ruled {
+  background-image: linear-gradient(to bottom, transparent calc(100% - 1px), oklch(0.62 0.08 240 / 0.14) 1px);
+  background-size: 100% 26px;
+}
+
+/* Sticky note */
+.hw-sticky {
+  background: linear-gradient(170deg, oklch(0.965 0.085 98), oklch(0.93 0.1 94));
+  box-shadow: 0 1px 1px oklch(0.4 0.05 80 / 0.15), 0 10px 18px -10px oklch(0.4 0.06 80 / 0.45);
+}
+.hw-tape {
+  background: oklch(0.96 0.015 85 / 0.7);
+  box-shadow: 0 0 0 0.5px oklch(0.5 0.02 70 / 0.12);
+  backdrop-filter: blur(1px);
+  -webkit-mask: linear-gradient(90deg, transparent 0 2px, #000 2px calc(100% - 2px), transparent calc(100% - 2px)),
+    repeating-linear-gradient(0deg, #000 0 3px, transparent 3px 4px);
+}
+
+/* Rubber stamp: uneven ink */
+.hw-stamp {
+  --stamp-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='s'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' seed='9'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='discrete' tableValues='1 1 1 1 1 1 0 1 1 0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23s)'/%3E%3C/svg%3E");
+  -webkit-mask-image: var(--stamp-mask);
+  mask-image: var(--stamp-mask);
+  -webkit-mask-size: 160px 160px;
+  mask-size: 160px 160px;
+}
+
+.hw-3d { transform-style: preserve-3d; }
+.hw-backface { backface-visibility: hidden; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hw-desk-light { transition: none; }
+}
+
+/* Cards are sheets of paper, not boxes. */
+.hw-card {
+  border-radius: 4px;
+  background-color: var(--paper);
+  background-image: var(--fibre);
+  background-size: 240px 240px;
+  box-shadow: 0 0.5px 0 oklch(1 0 0 / 0.9) inset, 0 0 0 0.5px oklch(0.3 0.03 60 / 0.07), 0 1px 2px oklch(0.3 0.03 60 / 0.1), 0 12px 24px -16px oklch(0.3 0.03 60 / 0.3);
+}
